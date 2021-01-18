@@ -62,3 +62,8 @@ buck-out/
 /android/UnityExport/
 
 unity
+
+android/java_pid*
+
+ios/assets/src
+android/app/src/main/res/*/src_*

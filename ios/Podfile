@@ -1,0 +1,66 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+install!'cocoapods',:deterministic_uuids=>false
+platform :ios, '10.0'
+
+target 'beat' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  pod 'UMCCommon'
+  pod 'UMCCommonLog'
+  pod 'UMCPush'
+  pod 'UMCShare/UI'
+  pod 'UMCShare/Social/WeChat'
+  pod 'UMCShare/Social/ReducedQQ'
+
+  pod 'Google-Mobile-Ads-SDK'
+
+  pod 'Picker', :path => '../node_modules/react-native-picker'
+
+
+
+
+  pod 'react-native-heic-converter', :path => '../node_modules/react-native-heic-converter'
+
+  target 'beatTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+  use_flipper!
+  post_install do |installer|
+    flipper_post_install(installer)
+  end
+  
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-BluetoothPeripheral', :path => "#{permissions_path}/BluetoothPeripheral.podspec"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+  pod 'Permission-Calendars', :path => "#{permissions_path}/Calendars.podspec"
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways.podspec"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
+  pod 'Permission-MediaLibrary', :path => "#{permissions_path}/MediaLibrary.podspec"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone.podspec"
+  pod 'Permission-Motion', :path => "#{permissions_path}/Motion.podspec"
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
+  pod 'Permission-Reminders', :path => "#{permissions_path}/Reminders.podspec"
+  pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition.podspec"
+  
+end
+
+target 'beat-tvOS' do
+  # Pods for beat-tvOS
+
+  target 'beat-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end

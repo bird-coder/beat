@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BeatX</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">94sUousGIpNMnvNhyILCSl-bkcMrMWqXtQk5C</string>
+</resources>
