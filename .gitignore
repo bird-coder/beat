@@ -67,3 +67,5 @@ android/java_pid*
 
 ios/assets/src
 android/app/src/main/res/*/src_*
+
+react.gradle.bak
